@@ -18,21 +18,23 @@
                 <div class="page-up">
                     <div class="add-person-container col-3 ">
                         <h2>Add Person</h2>
-                        <form class="form-container">
+                        <form class="form-container" id="addPersonForm" >
                             <div class="form-area">
                                 <div class="mb-3 ">
                                     <label for="Name" class="form-label">First Name</label>
-                                    <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                                    <input  class="form-control" id="firstName"placeholder="First Name">
                                 </div>
                                 <div class="mb-3 ">
                                     <label for="Surname" class="form-label">Surname</label>
-                                    <input type="text" class="form-control" id="surName" placeholder="Surname">
+                                    <input  class="form-control" id="surName"placeholder="Surname">
                                 </div>
                                 <div class="mb-3 ">
                                     <label for="Balance" class="form-label">Balance</label>
-                                    <input type="text" class="form-control" id="balance" placeholder="Balance">
+                                    <input 
+                                     class="form-control"  id="balance" placeholder="Balance">
                                 </div>
-                                <button type="submit" class="btn btn-primary" id="useraddBtn">Add </button>
+                                <button type="button" class="btn btn-primary" id="useraddBtn" onclick=" addPerson()"
+                                    >Add </button>
                             </div>
                         </form>
                     </div>
@@ -83,23 +85,32 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <!-- User Table -->
-                <ul class="responsive-table col-4 " id="users">
+                <ul class="responsive-table col-4 ">
                     <li class="table-header">
                         <div class="col col-3 mx-2 ">Full Name</div>
                         <div class="col col-1 balance">Balance</div>
                         <div class="col col-2 ">Products</div>
                         <div class="col col-2">account activities</div>
                     </li>
+                    <div id="users">
+                        <div id="usersList">
+                    </div>
+                </div>
                 </ul>
+
+
+
+
                 <!-- Product or Account Table -->
                 <ul class="responsive-table col-4">
                     <li class="table-header">
                         <div class="col col-4">Product List</div>
                     </li>
                     <li class="table-row">
-                       
+
                         <div class="col col-1" data-label="Product Id">
                             42235</div>
                         <div class="col col-2" data-label="Product Name">John Doe</div>
@@ -125,14 +136,16 @@
 
                     </li>
                 </ul>
-              
+
+
+                <!-- All Product List -->
                 <ul class="responsive-table col-4">
                     <li class="table-header">
                         <div class="col col-4 mx-2">Product Name</div>
                         <div class="col col-2 balance ">Price</div>
                         <div class="col col-2 ">Total Quantity</div>
                         <div class="col col-2">Customer</div>
-                        
+
                     </li>
                     <li class="table-row">
                         <div class="col col-2" data-label="Job Id">42235</div>
@@ -161,6 +174,7 @@
                 </ul>
             </div>
         </div>
+       
     </section>
 </body>
 <script src="app.js"></script>

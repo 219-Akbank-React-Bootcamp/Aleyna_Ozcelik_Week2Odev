@@ -1,61 +1,71 @@
+
+let userList = [];
+
+let person = {
+  firstName: "",
+  surName: "",
+  Balance: 0,
+  product: "show",
+  account: "show"
+};
+
 const list = document.querySelector('#users');
-const firstname = document.getElementById('firstName');
-const surname = document.getElementById('surName');
-const balance = document.getElementById('balance');
-const addBtn = document.getElementById('useraddBtn');
-document.addEventListener("DOMContentLoaded", getUsers);
-addBtn.addEventListener("click", addUser);
 
-//Add User to List
-function addUser(e) {
-    e.preventDefault();
 
-    const userLi = document.createElement("li");
-    userLi.classList.add("table-row");
-    //Create list
-    const UserList = userLi.innerHTML =
-        ` <div class="form-check col col-1">
+//Kullanıcı Listesini gösteriyoruz.
+const showUserList = function (person) {
+
+  let template =
+    ` <div class="form-check col col-1">
      <input class="form-check-input" placeholder="" type="checkbox" value="" id="flexCheckDefault"/>
-    
      </div> 
-      <div class="" data-label="Product Id">${firstname.value} ${surname.value}</div>
-      <div class="col col-2" data-label="Amount">${balance.value}$</div>
-      <div class="col col-2" data-label="Amount">show</div>
-      <div class="col col-2" data-label="Amount">show</div>`
-    list.appendChild(userLi);
-    saveLocalUsers(UserList);
-
+     <div class="" data-label="Product Id" name="firstname" >
+     ${person.firstName} ${person.surName}
+     </div>
+     <div class="col col-2" name="balance"data-label="Amount">${person.Balance}</div>
+     <div class="col col-2" name="surname"data-label="Amount">show</div>
+     <div class="col col-2" data-label="Amount">show</div>
+      `
+  //Liste oluşturması için 'li' tag'i yaratıyoruz.
+  const mainLi = document.createElement('li')
+  mainLi.classList.add('table-row');
+  mainLi.innerHTML = template;
+  list.appendChild(mainLi)
+  return userList
 }
-function saveLocalUsers(user) {
-    let users;
-    if (localStorage.getItem("users") === null) {
-        users = [];
-    } else {
-        users = JSON.parse(localStorage.getItem("users"));
-    }
-    users.push(user);
-    localStorage.setItem("users", JSON.stringify(users));
+
+const addUser = () => {
+  let Person;
+  
+  Person = {
+    ...person,
+    firstName: document.getElementById('firstName').value,
+    surName: document.getElementById('surName').value,
+    Balance: document.getElementById('balance').value
+  }
+  userList = [...userList, Person]
+
+  saveUserArrayLS();
+  document.getElementById("addPersonForm").reset();
+  showUserList(Person);
+  console.log(userList)
 }
-function getUsers() {
-    let users;
-    if (localStorage.getItem("users") === null) {
-        users = [];
-    } else {
-        users = JSON.parse(localStorage.getItem("users"));
-    }
-    users.forEach(function (user) {
-        //Create user li
-        const userLi = document.createElement("li");
-        userLi.classList.add("table-row");
 
-        //Create list
-        userLi.innerHTML = user;
-        list.appendChild(userLi);
+const refreshPage = () => {
+  document.getElementById("usersList").innerHTML = "";
+  userList.forEach((item) => {
+    showUserList(item);
+  });
+};
 
-    });
+//Local storage'e itemlerı kaydediyoruz.
+const saveUserArrayLS = () => {
+  localStorage.setItem("userListLS", JSON.stringify(userList));
+};
+//Local storage'den itemlerı çekiyoruz.
+const userListLS = localStorage.getItem("userListLS");
+
+if (userListLS) {
+  userList = JSON.parse(userListLS);
+  refreshPage();
 }
-//Get Product List 
-fetch('https://dummyjson.com/products')
-.then(res => res.json())
-.then(console.log);
-
