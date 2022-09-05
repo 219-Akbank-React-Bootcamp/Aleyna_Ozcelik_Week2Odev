@@ -10,11 +10,8 @@ let person = {
 };
 
 const list = document.querySelector('#users');
-
-
 //Kullanıcı Listesini gösteriyoruz.
 const showUserList = function (person) {
-
   let template =
     ` <div class="form-check col col-1">
      <input class="form-check-input" placeholder="" type="checkbox" value="" id="flexCheckDefault"/>
@@ -36,7 +33,7 @@ const showUserList = function (person) {
 
 const addUser = () => {
   let Person;
-  
+
   Person = {
     ...person,
     firstName: document.getElementById('firstName').value,
