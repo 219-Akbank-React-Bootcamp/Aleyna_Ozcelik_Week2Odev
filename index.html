@@ -16,25 +16,25 @@
         <div class="container">
             <div class="row">
                 <div class="page-up">
-                    <div class="add-person-container col-3 ">
+                    <!-- ADD USER LIST -->
+                    <div class="add-form-container col-3 ">
                         <h2>Add Person</h2>
-                        <form class="form-container" id="addPersonForm" >
+                        <form class="form-container" id="addPersonForm">
                             <div class="form-area">
                                 <div class="mb-3 ">
                                     <label for="Name" class="form-label">First Name</label>
-                                    <input  class="form-control" id="firstName"placeholder="First Name">
+                                    <input class="form-control" id="firstName" placeholder="First Name">
                                 </div>
                                 <div class="mb-3 ">
                                     <label for="Surname" class="form-label">Surname</label>
-                                    <input  class="form-control" id="surName"placeholder="Surname">
+                                    <input class="form-control" id="surName" placeholder="Surname">
                                 </div>
                                 <div class="mb-3 ">
                                     <label for="Balance" class="form-label">Balance</label>
-                                    <input 
-                                     class="form-control"  id="balance" placeholder="Balance">
+                                    <input class="form-control" id="balance" placeholder="Balance" type="text">
                                 </div>
-                                <button type="button" class="btn btn-primary" id="useraddBtn" onclick=" addUser()"
-                                    >Add </button>
+                                <button type="button" class="btn btn-primary" id="useraddBtn" onclick=" addUser()">Add
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -42,16 +42,22 @@
                         <div class=" transfer-area">
                             <h2>Remittance </h2>
                             <div class="transfer-info col-12 mb-3">
+                                <div class="col-4 remitter-area">
+                                    <select id="remitter" data-id="hfh" aria-label="remitter">
+                                        <option>Remitter</option>
 
-                                <div class="remitter-area col-4">
-                                    <p> Remitter name</p>
+                                    </select>
                                 </div>
                                 <div class="total-money col-4">
-                                    <p class="sum">302,50$</p>
-                                    <button type="submit" class="sum__send_btn">Send</button>
+                                    <input type="text" class="sum" placeholder="transfer" id="transferMoney"
+                                        style="width: 100px; margin-bottom:20px" />
+                                    <button type="submit" class="sum__send_btn" id="moneySend"
+                                        onclick="tranferMoney()">Send</button>
                                 </div>
                                 <div class="remitter-area col-4">
-                                    <p>Remitte name</p>
+                                    <select id="remitte" aria-label="remitte">
+                                        <option>Remitte</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -72,16 +78,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="product-info-container col-4">
-                        <div class="product_img-container">
-                            <img src="./assets/images/klavye.png" class="product-img" alt="product">
-                        </div>
-                        <div class="product-info">
-                            <p class="product-name"><span style="font-weight: bold;">Product Name:</span> Game Keyboard
-                            </p>
-                            <p class="product-quantity"><span style="font-weight: bold;">Quantity:</span> - 4 +</p>
-                            <p class="product-price"><span style="font-weight: bold;">Price:</span> 302,5$</p>
-                        </div>
+                    <div class="add-form-container  col-3">
+                        <h2>Add Product</h2>
+                        <form class="form-container" id="addProductForm">
+                            <div class="form-area">
+                                <div class="mb-3 ">
+                                    <label for="Name" class="form-label">Product Name</label>
+                                    <input class="form-control" id="productName" placeholder="Product Name">
+                                </div>
+                                <div class="mb-3 ">
+                                    <label for="Price" class="form-label">Quantity</label>
+                                    <input class="form-control" id="quantity" placeholder="Quantity">
+                                </div>
+                                <div class="mb-3 ">
+                                    <label for="price" class="form-label">Price</label>
+                                    <input class="form-control" id="price" placeholder="Price">
+                                </div>
+                                <button type="button" class="btn btn-primary" id="useraddBtn"
+                                    onclick="addProduct()">Add</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -93,88 +109,39 @@
                         <div class="col col-3 mx-2 ">Full Name</div>
                         <div class="col col-1 balance">Balance</div>
                         <div class="col col-2 ">Products</div>
-                        <div class="col col-2">account activities</div>
+                        <div class="col col-2">Account Activities</div>
                     </li>
                     <div id="users">
                         <div id="usersList">
+                        </div>
                     </div>
-                </div>
                 </ul>
-
-
-
 
                 <!-- Product or Account Table -->
                 <ul class="responsive-table col-4">
                     <li class="table-header">
                         <div class="col col-4">Product List</div>
                     </li>
-                    <li class="table-row">
-
-                        <div class="col col-1" data-label="Product Id">
-                            42235</div>
-                        <div class="col col-2" data-label="Product Name">John Doe</div>
-                        <button class="col col-2 showBtn" type="button" data-label="Amount">$350</button>
-
-                    </li>
-                    <li class="table-row">
-                        <div class="col col-1" data-label="Product Id">42235</div>
-                        <div class="col col-2" data-label="Product Name">John Doe</div>
-                        <div class="col col-2" data-label="Amount">$350</div>
-
-                    </li>
-                    <li class="table-row">
-                        <div class="col col-1" data-label="Product Id">42235</div>
-                        <div class="col col-2" data-label="Product Name">John Doe</div>
-                        <div class="col col-2" data-label="Amount">$350</div>
-
-                    </li>
-                    <li class="table-row">
-                        <div class="col col-1" data-label="Product Id">42235</div>
-                        <div class="col col-2" data-label="Product Name">John Doe</div>
-                        <div class="col col-2" data-label="Amount">$350</div>
-
-                    </li>
+                    <div id="usersProduct">
+                        <div id="">
+                        </div>
                 </ul>
-
 
                 <!-- All Product List -->
                 <ul class="responsive-table col-4">
                     <li class="table-header">
                         <div class="col col-4 mx-2">Product Name</div>
                         <div class="col col-2 balance ">Price</div>
-                        <div class="col col-2 ">Total Quantity</div>
+                        <div class="col col-2 ">Quantity</div>
                         <div class="col col-2">Customer</div>
-
                     </li>
-                    <li class="table-row">
-                        <div class="col col-2" data-label="Job Id">42235</div>
-                        <div class="col col-2" data-label="Customer Name">John Doe</div>
-                        <div class="col col-2" data-label="Amount">$350</div>
-                        <div class="col col-2" data-label="Payment Status">Pending</div>
-                    </li>
-                    <li class="table-row">
-                        <div class="col col-1" data-label="Job Id">42442</div>
-                        <div class="col col-2" data-label="Customer Name">Jennifer Smith</div>
-                        <div class="col col-2" data-label="Amount">$220</div>
-                        <div class="col col-2" data-label="Payment Status">Pending</div>
-                    </li>
-                    <li class="table-row">
-                        <div class="col col-1" data-label="Job Id">42257</div>
-                        <div class="col col-2" data-label="Customer Name">John Smith</div>
-                        <div class="col col-2" data-label="Amount">$341</div>
-                        <div class="col col-2" data-label="Payment Status">Pending</div>
-                    </li>
-                    <li class="table-row">
-                        <div class="col col-1" data-label="Job Id">42311</div>
-                        <div class="col col-2" data-label="Customer Name">John Carpenter</div>
-                        <div class="col col-2" data-label="Amount">$115</div>
-                        <div class="col col-2" data-label="Payment Status">Pending</div>
-                    </li>
+                    <div id="products">
+                        <div id="productsList">
+                        </div>
                 </ul>
             </div>
         </div>
-       
+
     </section>
 </body>
 <script src="app.js"></script>
