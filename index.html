@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="./assets/bootstrap-5.0.2-dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="./assets/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/fontawesome/css/all.css" />
     <title>Document</title>
 </head>
@@ -42,16 +42,16 @@
                         <div class=" transfer-area">
                             <h2>Remittance </h2>
                             <div class="transfer-info col-12 mb-3">
-                                <div class="col-4 remitter-area">
+                                <div class=" remitter-area col-4">
                                     <select id="remitter" data-id="hfh" aria-label="remitter">
                                         <option>Remitter</option>
 
                                     </select>
                                 </div>
-                                <div class="total-money col-4">
+                                <div class="total-money col-4 mt-2">
                                     <input type="text" class="sum" placeholder="transfer" id="transferMoney"
-                                        style="width: 100px; margin-bottom:20px" />
-                                    <button type="submit" class="sum__send_btn" id="moneySend"
+                                        style="width: 150px; margin-bottom:20px" />
+                                    <button type="button" class="sum__send_btn" id="moneySend"
                                         onclick="tranferMoney()">Send</button>
                                 </div>
                                 <div class="remitter-area col-4">
@@ -64,16 +64,19 @@
                         <div class=" transfer-area">
                             <h2>Product Sales </h2>
                             <div class="transfer-info col-12 mb-3">
-
                                 <div class="remitter-area col-4">
-                                    <p> Remitter name</p>
+                                    <select id="remitter" data-id="hfh" aria-label="remitter">
+                                        <option>Remitter</option>
+                                    </select>
                                 </div>
-                                <div class="total-money col-4">
+                                <div class="total-money col-4 mt-2">
                                     <p class="sum">Product Name</p>
 
                                 </div>
                                 <div class="remitter-area col-4">
-                                    <p>Remitte name</p>
+                                    <select id="remitte" aria-label="remitte">
+                                        <option>Remitte</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -106,8 +109,8 @@
                 <!-- User Table -->
                 <ul class="responsive-table col-4 ">
                     <li class="table-header">
-                        <div class="col col-3 mx-2 ">Full Name</div>
-                        <div class="col col-1 balance">Balance</div>
+                        <div class="col col-3 mx-3 ">Full Name</div>
+                        <div class="col col-2 balance">Balance</div>
                         <div class="col col-2 ">Products</div>
                         <div class="col col-2">Account Activities</div>
                     </li>
@@ -118,22 +121,21 @@
                 </ul>
 
                 <!-- Product or Account Table -->
-                <ul class="responsive-table col-4">
-                    <li class="table-header">
-                        <div class="col col-4">Product List</div>
+                <ul class="responsive-table col-4 " id="userInfoTble" >
+                    <li class="table-header" id="tableName">
                     </li>
                     <div id="usersProduct">
-                        <div id="">
-                        </div>
+                       
                 </ul>
 
                 <!-- All Product List -->
                 <ul class="responsive-table col-4">
                     <li class="table-header">
-                        <div class="col col-4 mx-2">Product Name</div>
-                        <div class="col col-2 balance ">Price</div>
-                        <div class="col col-2 ">Quantity</div>
-                        <div class="col col-2">Customer</div>
+                        <div class="row">
+                        <div class=" col-4 ">Product Name</div>
+                        <div class=" col-4 balance ">Price</div>
+                        <div class=" col-4 ">Quantity</div>
+                    </div>
                     </li>
                     <div id="products">
                         <div id="productsList">

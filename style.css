@@ -85,15 +85,19 @@ select{
 .remitter-area {
  padding:8px;
 }
+.total-money{
 
+}
 .sum {
-  padding:20px;
+  padding:10px;
   border: 1.5px solid rgb(210, 177, 9);
   border-radius: 10px;
-  margin-right: 30px;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  display: flex;
+
 }
+
 
 .sum__send_btn {
   border-radius: 5px;
@@ -146,7 +150,8 @@ select{
 
 .responsive-table .table-header {
   background-color: #95A5A6;
-  font-size: 19px;
+  font-size: 16px;
+  font-weight: 600;
   display: flex;
   justify-content: space-between;
   padding: 30px;
@@ -156,7 +161,27 @@ select{
   background-color: #ffffff;
   box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
 }
-
+.showBtn{
+  border:none;
+  border-radius: 5px;
+  padding:5px;
+  background-color: #c7dcf2;
+}
+.showBtn:hover{
+  color:white;
+  font-weight: 600;
+  background-color: skyblue;
+}
+.btn-close{
+background-color: #97b9de;
+color: rebeccapurple;
+}
+.fa-xmark{
+  color:#6C7A89;
+}
+.fa-xmark:hover{
+  color:#000000;
+}
 .showBtn {
   border: none;
   cursor: pointer;
@@ -164,18 +189,16 @@ select{
 
 .form-check {
   position: absolute;
-  left: 140px;
-}
-
-.fa-plus {
-  margin-left: 50px;
+  
 }
 
 .balance {
   position: relative;
-  right: 20px;
+ 
 }
-
+.user__info{
+  background-color: #6C7A89;
+}
 
 
 .saleBtn{
@@ -184,6 +207,7 @@ select{
   border-radius: 5px;
   background-color: skyblue;
   font-weight: 600;
+  cursor: pointer;
 }
 @media all and (max-width: 767px) {
   .table-header {
@@ -206,7 +230,6 @@ select{
     display: flex;
     padding: 10px 0;
   }
-
   .col:before {
     color: #6C7A89;
     padding-right: 10px;
